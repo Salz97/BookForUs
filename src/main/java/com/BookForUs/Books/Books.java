@@ -29,4 +29,13 @@ public class Books {
     private Set<User>users;
 
 
+    @Column(name="Theme")
+    private Themes themes;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "author",referencedColumnName = "author_" +
+            "" +
+            "id")
+    private Author author;
+
 }
