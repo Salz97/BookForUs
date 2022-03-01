@@ -6,5 +6,7 @@ public enum Themes {
     COMEDY,
     HORROR,
     CHICKLIT,
-    SCIENCEFICTION
+    SCIENCEFICTION,
+  CHILDREN,
+  SUPERNATURAL
 }

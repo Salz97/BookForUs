@@ -38,4 +38,63 @@ public class Books {
             "id")
     private Author author;
 
+    public Books(int id, String title, LocalDate publicationDate, Set<User> users, Themes themes, Author author) {
+        this.id = id;
+        this.title = title;
+        this.publicationDate = publicationDate;
+        this.users = users;
+        this.themes = themes;
+        this.author = author;
+    }
+
+    public Books() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public LocalDate getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(LocalDate publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Themes getThemes() {
+        return themes;
+    }
+
+    public void setThemes(Themes themes) {
+        this.themes = themes;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 }

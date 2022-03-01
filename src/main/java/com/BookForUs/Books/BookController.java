@@ -1,11 +1,12 @@
 package com.BookForUs.Books;
 
+import com.BookForUs.Authors.Author;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Book;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -21,4 +22,20 @@ public class BookController {
     public List<Books>getBooksByAuthor(@RequestParam String authorName){
         return bookService.findBooksByAuthor(authorName);
     }
+    @GetMapping("/bookTitle")
+    public List<Books>getBooksWithSimilarThemes(@RequestParam String title){
+        return bookService.findBooksWithSimilarTheme(title);
+    }
+    @GetMapping("/all-books")
+    public List<Books>allBooks(){
+        return bookService.allBooks();
+    }
+    @PostMapping("/new-book")
+    public void addABook(@RequestParam String title,
+                         @RequestParam Themes theme,
+                         @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy")LocalDate publication,
+                         @RequestParam Author author){
+        bookService.addANewBook(title,publication,author,theme);
+    }
+
 }
