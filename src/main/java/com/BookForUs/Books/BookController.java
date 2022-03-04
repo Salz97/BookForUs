@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/books")
+@RequestMapping("api/books")
 public class BookController {
     private BookService bookService;
     @Autowired
@@ -30,6 +30,17 @@ public class BookController {
     public List<Books>allBooks(){
         return bookService.allBooks();
     }
+
+    @GetMapping("/bookName")
+    public Books getABook(@RequestParam String title){
+        return bookService.findABook(title);
+    }
+    @GetMapping()
+    public List<Books>findByWord(@RequestParam String word){
+        return bookService.findByWord(word);
+    }
+
+
     @PostMapping("/new-book")
     public void addABook(@RequestParam String title,
                          @RequestParam Themes theme,
@@ -37,5 +48,10 @@ public class BookController {
                          @RequestParam Author author){
         bookService.addANewBook(title,publication,author,theme);
     }
+
+//    @GetMapping("/allTheBooks/{title}")
+//    public List<Books>generateByWordsOfTitle(@PathVariable String title){
+//        return bookService.generateAllBooksWithWordsOfTitle(title);
+//    }
 
 }

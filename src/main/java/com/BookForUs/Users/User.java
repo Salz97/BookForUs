@@ -53,15 +53,16 @@ public class User {
     private boolean loggedIn;
 
 
-    @ManyToMany(cascade =CascadeType.MERGE)
+    @ManyToMany(cascade =CascadeType.ALL)
     @JoinTable(name= "Users_books",
             joinColumns = @JoinColumn(name= "user_id"),
             inverseJoinColumns = @JoinColumn(name= "book_id"))
     private Set<Books> books;
+
     public User() {
     }
 
-    public User(String userName, String email, String password, String loggedIn) {
+    public User(String userName, String email, String password, boolean loggedIn) {
         this.userName = userName;
         this.email = email;
         this.password = password;

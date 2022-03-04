@@ -7,6 +7,6 @@ public enum Themes {
     HORROR,
     CHICKLIT,
     SCIENCEFICTION,
-  CHILDREN,
-  SUPERNATURAL
+    CHILDREN,
+    SUPERNATURAL
 }

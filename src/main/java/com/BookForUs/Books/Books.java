@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
-@Entity(name="books")
+@Entity(name="Book")
 @Table(name="books")
 public class Books {
     @Id
@@ -32,7 +32,7 @@ public class Books {
     @Column(name="Theme")
     private Themes themes;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author",referencedColumnName = "author_" +
             "" +
             "id")
@@ -48,6 +48,9 @@ public class Books {
     }
 
     public Books() {
+    }
+
+    public Books(String title, LocalDate publication, Author author, Themes theme) {
     }
 
     public int getId() {
